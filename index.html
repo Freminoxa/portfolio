@@ -1067,6 +1067,29 @@
                                 <h4>Location</h4>
                                 <p>Nairobi, Kenya</p>
                             </div>
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>WhatsApp</h4>
+                                    <a href="https://wa.me/254793710713" target="_blank">0793710713</a>
+                                </div>
+                            </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <div>
+                                    <a href="tel:+254793710713">0793710713</a> 
+                                    <span class="contact-options">
+                                        <a href="tel:+254793710713"></a> 
+                                        
+                                    </span>
+                                </div>
+                            </div>
                         </li>
                         <li class="contact-item">
                             <div class="contact-icon">
@@ -1143,7 +1166,7 @@
                     <a href="#" class="social-icon" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="social-icon" target="_blank">
+                    <a href="https://x.com/Frank5149170005" class="social-icon" target="_blank">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
@@ -1157,27 +1180,33 @@
     <!-- JavaScript -->
     <script>
         // Toggle Dark/Light Theme
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const icon = themeToggle.querySelector('i');
 
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-theme');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
+// Check for saved theme preference or default to dark
+if (localStorage.getItem('theme') === null || localStorage.getItem('theme') === 'dark') {
+    // Set dark theme as default
+    body.classList.add('dark-theme');
+    icon.classList.replace('fa-moon', 'fa-sun');
+    localStorage.setItem('theme', 'dark');
+} else {
+    // Light theme only if explicitly set
+    body.classList.remove('dark-theme');
+    icon.classList.replace('fa-sun', 'fa-moon');
+}
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            
-            if (body.classList.contains('dark-theme')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        });
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    
+    if (body.classList.contains('dark-theme')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+    }
+});
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
